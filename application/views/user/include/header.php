@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/front/images/logo.png">
 <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/front/images/logo.png">
 
-<title>JCI Reports</title>
+<title>JCI Reports - <?php echo $title; ?></title>
 
 
 <!--     Fonts and icons     -->
@@ -56,6 +56,11 @@
     <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
       <ul class="navbar-nav navbar-nav-hover ms-auto">
         <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="<?php echo base_url();?>">
+            Home
+          </a>
+        </li>
+        <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="<?php echo base_url();?>about">
             About Us
           </a>
@@ -91,7 +96,20 @@
 </nav>
 <!-- End Navbar -->
 </div></div></div>
-
+<header class="header-2">
+  <div class="page-header min-vh-75 relative" style="background-image: url('assets/front/img/bg2.jpg')">
+    <span class="mask bg-gradient-primary opacity-4"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 text-center mx-auto">
+          <h1 class="text-white pt-3 mt-n5"><?php echo $heading; ?></h1>
+          <p class="lead text-white mt-3"><?php echo $subheading; ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
   
 
   
