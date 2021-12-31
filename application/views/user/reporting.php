@@ -3,69 +3,28 @@
     <div class="row">
       <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
         <h3 class="text-center">Plan of Action Reporting</h3>
-        <form role="form" id="contact-form" method="post" autocomplete="off">
+        <form role="form" id="contact-form" method="POST" autocomplete="off" action="<?php echo base_url();?>reporting/report">
           <div class="card-body">
             <div class="row">
-              <div class="col-md-6">
-                <div class="input-group input-group-dynamic mb-4">
-                  <label class="form-label">First Name</label>
-                  <input class="form-control" aria-label="First Name..." type="text" >
+              <div class="col-md-5 ps-2">
+                <div class="input-group input-group-dynamic my-3">
+                  <select class="form-control" name="region" id="region">
+                    <option value="">Select region</option>
+                    <?php foreach ($regions->result() as $row) {?>
+                     <option value="<?php echo $row->region_id?>"><?php echo $row->region_name?></option> 
+                    <?php } ?>
+                  </select>
                 </div>
               </div>
-              <div class="col-md-6 ps-2">
-                <div class="input-group input-group-dynamic">
-                  <label class="form-label">Last Name</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Last Name..." >
+              <div class="col-md-5 ps-2">
+                <div class="input-group input-group-dynamic my-3">
+                  <select class="form-control" name="lom" id="lom" disabled="" >
+                    <option value="">Select LOM</option>
+                  </select>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="input-group input-group-dynamic mb-4">
-                  <label class="form-label">Email</label>
-                  <input class="form-control" aria-label="Email..." type="email" >
-                </div>
-              </div>
-              <div class="col-md-6 ps-2">
-                <div class="input-group input-group-dynamic">
-                  <label class="form-label">Confirm Email</label>
-                  <input type="email" class="form-control" placeholder="" aria-label="Confirm Email..." >
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="input-group input-group-dynamic mb-4">
-                  <label class="form-label">Mobile</label>
-                  <input class="form-control" aria-label="Mobile..." type="text" >
-                </div>
-              </div>
-              <div class="col-md-6 ps-2">
-                <div class="input-group input-group-dynamic">
-                  <label class="form-label">Confirm Mobile</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Confirm Mobile..." >
-                </div>
-              </div>
-            </div>
-            <!-- <div class="mb-4">
-              <div class="input-group input-group-dynamic">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-control">
-              </div>
-            </div>
-            <div class="input-group mb-4 input-group-static">
-              <label>Your message</label>
-              <textarea name="message" class="form-control" id="message" rows="4"></textarea>
-            </div> -->
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-check form-switch mb-4 d-flex align-items-center">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
-                  <label class="form-check-label ms-3 mb-0" for="flexSwitchCheckDefault">I agree to the <a href="javascript:;" class="text-dark"><u>Terms and Conditions</u></a>.</label>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <button type="submit" class="btn bg-gradient-primary w-100">Send Message</button>
+              <div class="col-md-2">
+                <button type="submit" class="btn bg-gradient-primary w-100">Submit</button>
               </div>
             </div>
           </div>

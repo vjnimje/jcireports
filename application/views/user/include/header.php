@@ -66,8 +66,8 @@
           </a>
         </li>
         <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="<?php echo base_url();?>reporting">
-           Reporting
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="<?php echo base_url();?>report">
+           Report
           </a>
         </li>
 <!--         <li class="nav-item dropdown dropdown-hover mx-2">

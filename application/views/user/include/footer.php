@@ -286,7 +286,35 @@
     };
   }
 </script>
+<script src="<?php echo base_url();?>assets/front/js/plugins/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#region').on('change',function(){
+            var region_id = $(this).val();
+            if(region_id == '')
+            {
+              $('#lom').prop('disabled', true);
+            }
+            else
+            {
+               $('#lom').prop('disabled', false);
+                $.ajax({
+                    url:"<?php echo base_url();?>reporting/get_loms",
+                    type: "POST",
+                    data: {'region_id' : region_id},
+                    // datatype: 'json',
+                    success: function(data){
+                        $('#lom').html(data);
+                    },
+                    error: function(){
+                        alert('Error occured .....');
+                    }
+                });
+            }
+        });
 
+    });
+</script>
 
 
 

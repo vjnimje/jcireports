@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
     public function index()
 	{
+
+		
 		$data['title']="Home";
 		$data['heading']="JCI Zone IX";
 		$data['subheading']="";
@@ -22,6 +24,8 @@ class Main extends CI_Controller {
 	}
 	public function reporting()
 	{
+		$this->load->model('reporting_model');
+		$data['regions']= $this->reporting_model->get_regions();
 		$data['title']="Reporting";
 		$data['heading']="Reporting";
 		$data['subheading']="JCI Zone IX";
