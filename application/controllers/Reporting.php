@@ -57,6 +57,7 @@ class Reporting extends CI_Controller {
 			$under_activity = $activity."-".$other_under_activity;
 		}
 		$report_id = "JCI-".gmdate('dmY').rand(10000,99999);
+		$ip = $_SERVER['REMOTE_ADDR'];
 		$data = array(
 			'report_id'=>$report_id,
 			'region_name' => $this->input->post('region_name'),
@@ -82,12 +83,14 @@ class Reporting extends CI_Controller {
 			'remarks' => $this->input->post('remarks'),
 			'submitter_name' => $this->input->post('submitter_name'),
 			'submitter_designation' => $this->input->post('submitter_designation'),
-			'submitter_email' => $this->input->post('submitter_email')
+			'submitter_email' => $this->input->post('submitter_email'),
+			'ip_address'=> $ip
 		);
 		echo "<pre>";
 		print_r($data);
 	}
 	function test(){
-		echo $ip = $_SERVER['REMOTE_ADDR'];
+		 $ip = $_SERVER['REMOTE_ADDR'];
+		 echo $ip;
 	}	
 }
