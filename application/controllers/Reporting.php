@@ -92,6 +92,8 @@ class Reporting extends CI_Controller {
 	function test(){
 		 $ip = $_SERVER['REMOTE_ADDR'];
 		 echo $ip;
-		 echo " Ip test from server"
+		 echo "<br>";
+		 echo " Ip test from server";
+		 echo "<br>";
 	}	
 }
