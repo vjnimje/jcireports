@@ -56,7 +56,8 @@ class Reporting extends CI_Controller {
 		}else{
 			$under_activity = $activity."-".$other_under_activity;
 		}
-		$report_id = "JCI-".gmdate('dmY').rand(10000,99999);
+		date_default_timezone_set("Asia/Kolkata");
+		$report_id = "JCI-".mdate('%d%m%Y%H%i').rand(10000,99999);
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$data = array(
 			'report_id'=>$report_id,
@@ -89,11 +90,4 @@ class Reporting extends CI_Controller {
 		echo "<pre>";
 		print_r($data);
 	}
-	function test(){
-		 $ip = $_SERVER['REMOTE_ADDR'];
-		 echo $ip;
-		 echo "<br>";
-		 echo " Ip test from server";
-		 echo "<br>";
-	}	
 }
