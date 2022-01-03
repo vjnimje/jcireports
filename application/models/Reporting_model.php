@@ -18,4 +18,7 @@
 			$query = $this->db->get_where('jci_regions', array('region_id' => $region_id));
 			return $query->result();
 		}
+		function insert_report($data){
+			$this->db->insert("jci_reports", $data);	
+		}
 	}

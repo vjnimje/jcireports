@@ -4,28 +4,28 @@
       <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
         <h3 class="text-center">Plan of Action Reporting</h3>
         <p align="justify">Note - Items marked with <span class="text-primary imp">*</span>are required.</p>
-        <form role="form" id="contact-form" method="POST" autocomplete="off" action="<?php echo base_url();?>reporting/insert_report">
+        <form role="form" id="contact-form" method="POST" autocomplete="on" action="<?php echo base_url();?>reporting/insert_report">
           <div class="card-body">
             <div class="row">
             	<?php foreach ($head as $head) {?>
             	<div class="col-md-4">
-	                <div class="input-group input-group-static mb-4">
-	                  <label>Region Name <span class="text-primary imp">*</span></label>
-	                  <input type="text" class="form-control" name="region_name" value="<?php echo $head->region_name;?>" readonly/>
-	                </div>
+	              <div class="input-group input-group-static mb-4">
+	                <label>Region Name <span class="text-primary imp">*</span></label>
+	                <input type="text" class="form-control" name="region_name" value="<?php echo $head->region_name;?>" readonly/>
 	              </div>
-              	<div class="col-md-4 ps-2">
-              		<div class="input-group input-group-static mb-4">
-				      <label>Region Head <span class="text-primary imp">*</span></label>
-				      <input type="text" class="form-control" name="region_head" value="<?php echo $head->region_head;?>" readonly/>
-				    </div>
-              	</div>
-              	<div class="col-md-4 ps-2">
-              		<div class="input-group input-group-static mb-4">
-				      <label>Region Head Email <span class="text-primary imp">*</span></label>
-				      <input type="text" class="form-control" name="head_email" value="<?php echo $head->head_email;?>" readonly/>
-				    </div>
-              	</div>
+	            </div>
+              <div class="col-md-4 ps-2">
+              	<div class="input-group input-group-static mb-4">
+						      <label>Region Head <span class="text-primary imp">*</span></label>
+						      <input type="text" class="form-control" name="region_head" value="<?php echo $head->region_head;?>" readonly/>
+						    </div>
+              </div>
+              <div class="col-md-4 ps-2">
+              	<div class="input-group input-group-static mb-4">
+						      <label>Region Head Email <span class="text-primary imp">*</span></label>
+						      <input type="text" class="form-control" name="head_email" value="<?php echo $head->head_email;?>" readonly/>
+						    </div>
+              </div>
               <?php }?>
             </div>
             <div class="row">
@@ -92,45 +92,52 @@
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
 	                <label>Title of the Project /Theme Name <span class="text-primary imp">*</span></label>
-	                <input type="text" class="form-control" name="project_title" required/>
+	                <input type="text" class="form-control" name="project_title" value="<?php set_value('project_title');?>" required/>
+	                <span class="text-danger"><?php echo form_error("project_title"); ?></span>
 	            </div>
             </div>
             <div class="row">
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-				      <label>Month</label>
-				      <input type="month" name="reporting_month" class="form-control">
-				    </div>
+					      <label>Month</label>
+					      <input type="month" name="reporting_month" class="form-control" value="<?php set_value('reporting_month');?>">
+					      <span class="text-danger"><?php echo form_error("reporting_month"); ?></span>
+					    </div>
        			</div>
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-				      <label>Start Date of project <span class="text-primary imp">*</span></label>
-				      <input type="date" name="start_date"class="form-control" required/>
-				    </div>
+					      <label>Start Date of project <span class="text-primary imp">*</span></label>
+					      <input type="date" name="start_date"class="form-control" value="<?php set_value('start_date');?>" required/>
+					      <span class="text-danger"><?php echo form_error("start_date"); ?></span>
+					    </div>
        			</div> 
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-				      <label>End Date of Project <span class="text-primary imp">*</span></label>
-				      <input type="date" name="end_date" class="form-control" required/>
-				    </div>
+					      <label>End Date of Project <span class="text-primary imp">*</span></label>
+					      <input type="date" name="end_date" class="form-control" value="<?php set_value('end_date');?>" required/>
+					      <span class="text-danger"><?php echo form_error("end_date"); ?></span>
+					    </div>
        			</div>          	
             </div>
             <div class="row">
             	<div class="col-md-6 ps-2">
 	              <div class="input-group input-group-static mb-4">
 	                <label>Members Attended <span class="text-primary imp">*</span></label>
-	                <input type="text" name="attended_no" class="form-control">
+	                <input type="text" name="attended_no" value="<?php set_value('attended_no');?>" class="form-control">
+	                <span class="text-danger"><?php echo form_error("attended_no"); ?></span>
 	              </div>
               </div>
               <div class="col-md-6 ps-2">
 	              <div class="input-group input-group-static mb-4">
 	                <label>Budget (In numbers only) <span class="text-primary imp"></span></label>
-	                <input type="text" name="budget" class="form-control">
+	                <input type="text" name="budget" class="form-control" value="<?php set_value('budget');?>">
+	                <span class="text-danger"><?php echo form_error("budget"); ?></span>
 	              </div>
               </div>
             </div>
             <div class="row">
             	<label>Activity/Events under ZP Plan of Action <span class="text-primary imp">*</span></label>
+            	<span class="text-danger"><?php echo form_error("under_activity"); ?></span>
             	<div class="col-md-6 form-check">
 							  <input class="form-check-input" type="radio" name="under_activity" value="Yes" required/>
 							  <label class="custom-control-label" >Yes</label>
@@ -149,6 +156,7 @@
             </div>
             <div class="row">
             	<label>Sustainable Development Goal <span class="text-primary imp">*</span></label>
+            	<span class="text-danger"><?php echo form_error("goal"); ?></span>
             	<div class="col-md-12 form-check">
 							  <input class="form-check-input" type="radio" name="goal" value="GOAL 1: No Poverty" required/>
 							  <label class="custom-control-label">GOAL 1: No Poverty</label>
@@ -220,26 +228,30 @@
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Target Population <span class="text-primary imp">*</span></label>
-	                <input type="text" class="form-control" name="target_population">
+	                <label>Target Population <span class="text-primary imp">*</span></label><br>
+	                <input type="text" class="form-control" name="target_population" value="<?php set_value('target_population');?>">
+	                <span class="small">Please enter the total number of people targeted (in number format)</span>
+	                <span class="text-danger"><?php echo form_error("target_population"); ?></span>
 	            </div>
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
 	                <label>Purpose <span class="text-primary imp">*</span></label>
-	                <input type="text" class="form-control" name="purpose">
+	                <input type="text" class="form-control" name="purpose" value="<?php set_value('purpose');?>">
+	                <span class="text-danger"><?php echo form_error("purpose"); ?></span>
 	            </div>
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
 	                <label>Overview <span class="text-primary imp">*</span></label>
-	                <input type="text" class="form-control" name="overview">
+	                <input type="text" class="form-control" name="overview" value="<?php set_value('overview');?>">
+	                <span class="text-danger"><?php echo form_error("overview"); ?></span>
 	            </div>
             </div>
             <div class="row">
             	<label>Event Images <span class="text-primary imp">*</span></label>
             	<div class="form-group form-file-upload form-file-multiple">
-						    <input type="file" name="images[]" multiple="" class="inputFileHidden" required/>
+						    <input type="file" name="images" multiple="" class="inputFileHidden" value="<?php set_value('images');?>" required/>
 						    <div class="input-group">
 						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
 						        <span class="input-group-btn">
@@ -253,7 +265,7 @@
             <div class="row">
             	<label>Event Videos</label>
             	<div class="form-group form-file-upload form-file-multiple">
-						    <input type="file" name="videos[]" multiple="" class="inputFileHidden">
+						    <input type="file" name="videos" multiple="" class="inputFileHidden" value="<?php set_value('videos');?>">
 						    <div class="input-group">
 						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
 						        <span class="input-group-btn">
@@ -267,7 +279,8 @@
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
 	                <label>Remarks</label>
-	                <input type="text" class="form-control" name="remarks">
+	                <input type="text" class="form-control" name="remarks" value="<?php set_value('remarks');?>">
+	                <span class="text-danger"><?php echo form_error("remarks"); ?></span>
 	            </div>
             </div>
             <div class="row">
@@ -275,19 +288,22 @@
             	<div class="col-md-4">
 	              <div class="input-group input-group-static mb-4">
 	                <label>Name <span class="text-primary imp">*</span></label>
-	                <input type="text" name="submitter_name" class="form-control" required/>
+	                <input type="text" name="submitter_name" class="form-control" value="<?php set_value('submitter_name');?>" required/>
+	                <span class="text-danger"><?php echo form_error("submitter_name"); ?></span>
 	              </div>
 	            </div>
               <div class="col-md-4 ps-2">
               	<div class="input-group input-group-static mb-4">
 					      	<label>Designation <span class="text-primary imp">*</span></label>
-					      	<input type="text" name="submitter_designation" class="form-control" required/>
+					      	<input type="text" name="submitter_designation" class="form-control" value="<?php set_value('submitter_designation');?>" required/>
+					      	<span class="text-danger"><?php echo form_error("submitter_designation"); ?></span>
 				    		</div>
               </div>
               <div class="col-md-4 ps-2">
               	<div class="input-group input-group-static mb-4">
 				      		<label>Email <span class="text-primary imp">*</span></label>
-				      		<input type="text" name="submitter_email" class="form-control" required/>
+				      		<input type="text" name="submitter_email" class="form-control" value="<?php set_value('submitter_email');?>" required/>
+				      		<span class="text-danger"><?php echo form_error("submitter_email"); ?></span>
 				    		</div>
               </div>
             </div>
