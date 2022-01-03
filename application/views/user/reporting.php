@@ -8,7 +8,8 @@
             <div class="row">
               <div class="col-md-5 ps-2">
                 <div class="input-group input-group-dynamic my-3">
-                  <select class="form-control" name="region" id="region">
+                  <label><span class="text-primary imp">*</span></label>
+                  <select class="form-control" name="region" id="region" required/>
                     <option value="">Select region</option>
                     <?php foreach ($regions->result() as $row) {?>
                      <option value="<?php echo $row->region_id?>"><?php echo $row->region_name?></option> 
@@ -18,7 +19,8 @@
               </div>
               <div class="col-md-5 ps-2">
                 <div class="input-group input-group-dynamic my-3">
-                  <select class="form-control" name="lom" id="lom" disabled="" >
+                  <label><span class="text-primary imp">*</span></label>
+                  <select class="form-control" name="lom" id="lom" disabled="" required/>
                     <option value="">Select LOM</option>
                   </select>
                 </div>

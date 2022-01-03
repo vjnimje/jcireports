@@ -3,25 +3,26 @@
     <div class="row">
       <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
         <h3 class="text-center">Plan of Action Reporting</h3>
+        <p align="justify">Note - Items marked with <span class="text-primary imp">*</span>are required.</p>
         <form role="form" id="contact-form" method="POST" autocomplete="off" action="<?php echo base_url();?>reporting/insert_report">
           <div class="card-body">
             <div class="row">
             	<?php foreach ($head as $head) {?>
             	<div class="col-md-4">
 	                <div class="input-group input-group-static mb-4">
-	                  <label>Region Name</label>
+	                  <label>Region Name <span class="text-primary imp">*</span></label>
 	                  <input type="text" class="form-control" name="region_name" value="<?php echo $head->region_name;?>" readonly/>
 	                </div>
 	              </div>
               	<div class="col-md-4 ps-2">
               		<div class="input-group input-group-static mb-4">
-				      <label>Region Head</label>
+				      <label>Region Head <span class="text-primary imp">*</span></label>
 				      <input type="text" class="form-control" name="region_head" value="<?php echo $head->region_head;?>" readonly/>
 				    </div>
               	</div>
               	<div class="col-md-4 ps-2">
               		<div class="input-group input-group-static mb-4">
-				      <label>Region Head Email</label>
+				      <label>Region Head Email <span class="text-primary imp">*</span></label>
 				      <input type="text" class="form-control" name="head_email" value="<?php echo $head->head_email;?>" readonly/>
 				    </div>
               	</div>
@@ -31,28 +32,28 @@
               	<?php foreach ($lom as $lom) {?>
               	<div class="col-md-4 ps-2">
 	                <div class="input-group input-group-static mb-4">
-	                  <label>LOM Name</label>
+	                  <label>LOM Name <span class="text-primary imp">*</span></label>
 	                  <input type="text" class="form-control" name="lom_name" value="<?php echo $lom->lom_name;?>" readonly/>
 	                </div>
               	</div>
               	<div class="col-md-4 ps-2">
 	                <div class="input-group input-group-static mb-4">
-	                  <label>LOM Head</label>
+	                  <label>LOM Head <span class="text-primary imp">*</span></label>
 	                  <input type="text" class="form-control" name="lom_head" value="<?php echo $lom->lom_head;?>" readonly/>
 	                </div>
               	</div>
               	<div class="col-md-4 ps-2">
 	                <div class="input-group input-group-static mb-4">
-	                  <label>LOM Head Email</label>
+	                  <label>LOM Head Email <span class="text-primary imp">*</span></label>
 	                  <input type="text" class="form-control" name="lom_email" value="<?php echo $lom->head_email;?>" readonly/>
 	                </div>
               	</div>
               	<?php }?>
             </div>
             <div class="row">
-            	<label>Category of Project</label>
+            	<label>Category of Project <span class="text-primary imp">*</span></label>
             	<div class="col-md-6 form-check">
-							  <input class="form-check-input" type="radio" name="project_category" value="Project Area">
+							  <input class="form-check-input" type="radio" name="project_category" value="Project Area" required/>
 							  <label class="custom-control-label">Program Area</label>
 							</div>
 							<div class="col-md-6 form-check">
@@ -90,8 +91,8 @@
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Title of the Project /Theme Name *</label>
-	                <input type="text" class="form-control" name="project_title">
+	                <label>Title of the Project /Theme Name <span class="text-primary imp">*</span></label>
+	                <input type="text" class="form-control" name="project_title" required/>
 	            </div>
             </div>
             <div class="row">
@@ -103,35 +104,35 @@
        			</div>
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-				      <label>Start Date of project</label>
-				      <input type="date" name="start_date"class="form-control">
+				      <label>Start Date of project <span class="text-primary imp">*</span></label>
+				      <input type="date" name="start_date"class="form-control" required/>
 				    </div>
        			</div> 
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-				      <label>End Date of Project</label>
-				      <input type="date" name="end_date" class="form-control">
+				      <label>End Date of Project <span class="text-primary imp">*</span></label>
+				      <input type="date" name="end_date" class="form-control" required/>
 				    </div>
        			</div>          	
             </div>
             <div class="row">
             	<div class="col-md-6 ps-2">
-	                <div class="input-group input-group-static mb-4">
-	                  <label>Members Attended</label>
-	                  <input type="text" name="attended_no" class="form-control">
-	                </div>
-              	</div>
-              	<div class="col-md-6 ps-2">
-	                <div class="input-group input-group-static mb-4">
-	                  <label>Budget (In numbers only)</label>
-	                  <input type="text" name="budget" class="form-control">
-	                </div>
-              	</div>
+	              <div class="input-group input-group-static mb-4">
+	                <label>Members Attended <span class="text-primary imp">*</span></label>
+	                <input type="text" name="attended_no" class="form-control">
+	              </div>
+              </div>
+              <div class="col-md-6 ps-2">
+	              <div class="input-group input-group-static mb-4">
+	                <label>Budget (In numbers only) <span class="text-primary imp"></span></label>
+	                <input type="text" name="budget" class="form-control">
+	              </div>
+              </div>
             </div>
             <div class="row">
-            	<label>Activity/Events under ZP Plan of Action *</label>
+            	<label>Activity/Events under ZP Plan of Action <span class="text-primary imp">*</span></label>
             	<div class="col-md-6 form-check">
-							  <input class="form-check-input" type="radio" name="under_activity" value="Yes">
+							  <input class="form-check-input" type="radio" name="under_activity" value="Yes" required/>
 							  <label class="custom-control-label" >Yes</label>
 							</div>
 							<div class="col-md-6 form-check">
@@ -147,9 +148,9 @@
 							</div>
             </div>
             <div class="row">
-            	<label>Sustainable Development Goal</label>
+            	<label>Sustainable Development Goal <span class="text-primary imp">*</span></label>
             	<div class="col-md-12 form-check">
-							  <input class="form-check-input" type="radio" name="goal" value="GOAL 1: No Poverty">
+							  <input class="form-check-input" type="radio" name="goal" value="GOAL 1: No Poverty" required/>
 							  <label class="custom-control-label">GOAL 1: No Poverty</label>
 							</div>
 							<div class="col-md-12 form-check">
@@ -157,11 +158,11 @@
 							  <label class="custom-control-label">GOAL 2: Zero Hunger</label>
 							</div>
 							<div class="col-md-12 form-check">
-							  <input class="form-check-input" type="radio" name="goal" value="">
+							  <input class="form-check-input" type="radio" name="goal" value="GOAL 3: Good Health and Well-being">
 							  <label class="custom-control-label">GOAL 3: Good Health and Well-being</label>
 							</div>
 							<div class="col-md-12 form-check">
-							  <input class="form-check-input" type="radio" name="goal" value="GOAL 3: Good Health and Well-being">
+							  <input class="form-check-input" type="radio" name="goal" value="GOAL 4: Quality Education">
 							  <label class="custom-control-label">GOAL 4: Quality Education</label>
 							</div>
 							<div class="col-md-12 form-check">
@@ -219,33 +220,49 @@
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Target Population *</label>
+	                <label>Target Population <span class="text-primary imp">*</span></label>
 	                <input type="text" class="form-control" name="target_population">
 	            </div>
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Purpose *</label>
+	                <label>Purpose <span class="text-primary imp">*</span></label>
 	                <input type="text" class="form-control" name="purpose">
 	            </div>
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Overview *</label>
+	                <label>Overview <span class="text-primary imp">*</span></label>
 	                <input type="text" class="form-control" name="overview">
 	            </div>
             </div>
             <div class="row">
-            	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Images</label>
-	                <input type="file" class="form-control" name="images">
-	            </div>
+            	<label>Event Images <span class="text-primary imp">*</span></label>
+            	<div class="form-group form-file-upload form-file-multiple">
+						    <input type="file" name="images[]" multiple="" class="inputFileHidden" required/>
+						    <div class="input-group">
+						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
+						        <span class="input-group-btn">
+						            <button type="button" class="btn btn-fab btn-round btn-primary">
+						                <i class="material-icons">image</i>
+						            </button>
+						        </span>
+						    </div>
+						  </div>
             </div>
             <div class="row">
-            	<div class="input-group input-group-static mb-4 ps-2">
-	                <label>Video</label>
-	                <input type="file" class="form-control" name="videos">
-	            </div>
+            	<label>Event Videos</label>
+            	<div class="form-group form-file-upload form-file-multiple">
+						    <input type="file" name="videos[]" multiple="" class="inputFileHidden">
+						    <div class="input-group">
+						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
+						        <span class="input-group-btn">
+						            <button type="button" class="btn btn-fab btn-round btn-primary">
+						                <i class="material-icons">slideshow</i>
+						            </button>
+						        </span>
+						    </div>
+						  </div>
             </div>
             <div class="row">
             	<div class="input-group input-group-static mb-4 ps-2">
@@ -257,20 +274,20 @@
             	<label>Report Submitter Info</label>
             	<div class="col-md-4">
 	              <div class="input-group input-group-static mb-4">
-	                <label>Name</label>
-	                <input type="text" name="submitter_name" class="form-control">
+	                <label>Name <span class="text-primary imp">*</span></label>
+	                <input type="text" name="submitter_name" class="form-control" required/>
 	              </div>
 	            </div>
               <div class="col-md-4 ps-2">
               	<div class="input-group input-group-static mb-4">
-					      	<label>Designation</label>
-					      	<input type="text" name="submitter_designation" class="form-control">
+					      	<label>Designation <span class="text-primary imp">*</span></label>
+					      	<input type="text" name="submitter_designation" class="form-control" required/>
 				    		</div>
               </div>
               <div class="col-md-4 ps-2">
               	<div class="input-group input-group-static mb-4">
-				      		<label>Email</label>
-				      		<input type="text" name="submitter_email" class="form-control">
+				      		<label>Email <span class="text-primary imp">*</span></label>
+				      		<input type="text" name="submitter_email" class="form-control" required/>
 				    		</div>
               </div>
             </div>

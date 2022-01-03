@@ -26,13 +26,13 @@ class Reporting extends CI_Controller {
 			$this->session->set_flashdata('error', 'Something is wrong.');
 		}
 	}
-	function test(){
-		$region = $this->input->post('region');
-		$lom = $this->input->post('lom');
-		echo $region;
-		echo "<br>";
-		echo $lom;
-	}
+	// function test(){
+	// 	$region = $this->input->post('region');
+	// 	$lom = $this->input->post('lom');
+	// 	echo $region;
+	// 	echo "<br>";
+	// 	echo $lom;
+	// }
 	function report(){
 		$region_id = $this->input->post('region');
 		$lom_id = $this->input->post('lom');
@@ -47,8 +47,18 @@ class Reporting extends CI_Controller {
 		$this->load->view('user/include/footer');
 	}
 	function insert_report(){
-		$test="vijay";
+		$activity = $this->input->post('under_activity');
+		$other_under_activity = $this->input->post('other_under_activity');
+		if ($activity == 'Yes') {
+			$under_activity = 'Yes';
+		}elseif ($activity == 'No') {
+			$under_activity = 'No';
+		}else{
+			$under_activity = $activity."-".$other_under_activity;
+		}
+		$report_id = "JCI-".gmdate('dmY').rand(10000,99999);
 		$data = array(
+			'report_id'=>$report_id,
 			'region_name' => $this->input->post('region_name'),
 			'region_head' => $this->input->post('region_head'),
 			'head_email' => $this->input->post('head_email'),
@@ -62,7 +72,7 @@ class Reporting extends CI_Controller {
 			'end_date' => $this->input->post('end_date'),
 			'attended_no' => $this->input->post('attended_no'),
 			'budget' => $this->input->post('budget'),
-			'under_activity' => $this->input->post('under_activity'),
+			'under_activity' => $under_activity,
 			'goal' => $this->input->post('goal'),
 			'target_population' => $this->input->post('target_population'),
 			'purpose' => $this->input->post('purpose'),
@@ -77,4 +87,7 @@ class Reporting extends CI_Controller {
 		echo "<pre>";
 		print_r($data);
 	}
+	function test(){
+		echo $ip = $_SERVER['REMOTE_ADDR'];
+	}	
 }

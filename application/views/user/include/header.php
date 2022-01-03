@@ -17,6 +17,7 @@
 <!-- Nucleo Icons -->
 <link href="<?php echo base_url(); ?>assets/front/css/nucleo-icons.css" rel="stylesheet" />
 <link href="<?php echo base_url(); ?>assets/front/css/nucleo-svg.css" rel="stylesheet" />
+<link href="<?php echo base_url(); ?>assets/front/css/custom.css" rel="stylesheet" />
 <!-- <link href="<?php echo base_url(); ?>assets/front/css/font-awesome.min.css" rel="stylesheet" />
 <link href="<?php echo base_url(); ?>assets/front/css/font-awesome.css" rel="stylesheet" /> -->
 
@@ -97,7 +98,7 @@
 <!-- End Navbar -->
 </div></div></div>
 <header class="header-2">
-  <div class="page-header min-vh-75 relative" style="background-image: url('assets/front/img/bg2.jpg')">
+  <div class="page-header min-vh-75 relative" style="background-image: url('<?php echo base_url();?>assets/front/img/bg2.jpg')">
     <span class="mask bg-gradient-primary opacity-4"></span>
     <div class="container">
       <div class="row">
