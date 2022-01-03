@@ -80,7 +80,38 @@ class Reporting extends CI_Controller {
 				date_default_timezone_set("Asia/Kolkata");
 				$report_id = "JCI-".mdate('%d%m%Y%H%i').rand(10000,99999);
 				$ip = $_SERVER['REMOTE_ADDR'];
-
+				if(!empty($_FILES['images']['name'])){
+	        		
+	        		$new_name 			= time().$_FILES['images']['name'];
+	            		$config['file_name']		= str_replace(' ', '_', $new_name);
+	            		$config['upload_path']          = './assets/uploads/reports/';
+		                $config['allowed_types']        = array("gif", "jpeg", "jpg", "png", "JPG", "JPEG", "GIF", "PNG");
+		                $config['max_size']             = 5000;
+		                $config['max_width']            = 5000;
+		                $config['max_height']           = 5000;
+		                $this->load->library('upload', $config);
+		                $upload_data = $this->upload->data();
+		                $imagename = $upload_data['file_name'];
+	        	}
+	        	else{
+	        		$imagename='';
+	        	}
+	        	if(!empty($_FILES['videos']['name'])){
+	        		
+	        		$new_name 			= time().$_FILES['videos']['name'];
+	            		$config['file_name']		= str_replace(' ', '_', $new_name);
+	            		$config['upload_path']          = './assets/uploads/reports/';
+		                $config['allowed_types']        = array("gif", "jpeg", "jpg", "png", "JPG", "JPEG", "GIF", "PNG");
+		                $config['max_size']             = 5000;
+		                $config['max_width']            = 5000;
+		                $config['max_height']           = 5000;
+		                $this->load->library('upload', $config);
+		                $upload_data = $this->upload->data();
+		                $videoname = $upload_data['file_name'];
+	        	}
+	        	else{
+	        		$videoname='';
+	        	}
 
 				$data = array(
 					'report_id'=>$report_id,
@@ -102,15 +133,17 @@ class Reporting extends CI_Controller {
 					'target_population' => $this->input->post('target_population'),
 					'purpose' => $this->input->post('purpose'),
 					'overview' => $this->input->post('overview'),
-					'images' => $this->input->post('images'),
-					'videos' => $this->input->post('videos'),
+					'images' => $imagename,
+					'videos' => $videoname,
 					'remarks' => $this->input->post('remarks'),
 					'submitter_name' => $this->input->post('submitter_name'),
 					'submitter_designation' => $this->input->post('submitter_designation'),
 					'submitter_email' => $this->input->post('submitter_email'),
-					// 'ip_address'=> $ip
+					'ip_address'=> $ip
 				);
 				$this->reporting_model->insert_report($data);
+				$this->upload_images();
+				$this->upload_videos();
 				$this->session->set_flashdata('success_msg', 'Report Added Sucessfully');
 				// echo "<pre>";
 				// print_r($data);
@@ -137,9 +170,45 @@ class Reporting extends CI_Controller {
 		}
 	}
 	function upload_images(){
+		$config['upload_path']          = './assets/uploads/reports/';
+        $config['allowed_types']        = array("gif", "jpeg", "jpg", "png", "JPG", "JPEG", "GIF", "PNG");
+        $config['max_size']             = 1000;
+        $config['max_width']            = 5000;
+        $config['max_height']           = 5000;
 
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('images'))
+        {
+           	$error = array('error' => $this->upload->display_errors());
+
+            $this->insert_report();
+        }
+        else
+        {
+        	$this->session->set_flashdata('success_msg', 'Client Added Sucessfully');
+            $this->report();
+        }
 	}
 	function upload_videos(){
+		$config['upload_path']          = './assets/uploads/reports/';
+        $config['allowed_types']        = array("gif", "jpeg", "jpg", "png", "JPG", "JPEG", "GIF", "PNG");
+        $config['max_size']             = 1000;
+        $config['max_width']            = 5000;
+        $config['max_height']           = 5000;
 
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('videos'))
+        {
+           	$error = array('error' => $this->upload->display_errors());
+
+            $this->insert_report();
+        }
+        else
+        {
+        	$this->session->set_flashdata('success_msg', 'Client Added Sucessfully');
+            $this->report();
+        }
 	}
 }

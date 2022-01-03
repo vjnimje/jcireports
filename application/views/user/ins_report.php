@@ -99,7 +99,7 @@
             <div class="row">
        			<div class="col-md-4">
        				<div class="input-group input-group-static my-3">
-					      <label>Month</label>
+					      <label>Month <span class="text-primary imp"></span></label>
 					      <input type="month" name="reporting_month" class="form-control" value="<?php set_value('reporting_month');?>">
 					      <span class="text-danger"><?php echo form_error("reporting_month"); ?></span>
 					    </div>
@@ -253,7 +253,7 @@
             	<div class="form-group form-file-upload form-file-multiple">
 						    <input type="file" name="images" multiple="" class="inputFileHidden" value="<?php set_value('images');?>" required/>
 						    <div class="input-group">
-						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
+						        <input type="text" class="form-control inputFileVisible" placeholder="Please Select Single file only." multiple>
 						        <span class="input-group-btn">
 						            <button type="button" class="btn btn-fab btn-round btn-primary">
 						                <i class="material-icons">image</i>
@@ -267,7 +267,7 @@
             	<div class="form-group form-file-upload form-file-multiple">
 						    <input type="file" name="videos" multiple="" class="inputFileHidden" value="<?php set_value('videos');?>">
 						    <div class="input-group">
-						        <input type="text" class="form-control inputFileVisible" placeholder="Multiple Files" multiple>
+						        <input type="text" class="form-control inputFileVisible" placeholder="Please Select Single file only." multiple>
 						        <span class="input-group-btn">
 						            <button type="button" class="btn btn-fab btn-round btn-primary">
 						                <i class="material-icons">slideshow</i>
