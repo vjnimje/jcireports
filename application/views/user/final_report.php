@@ -1,0 +1,1 @@
+<span class="alert alert-success mx-auto"><?php echo $this->session->flashdata("success_msg");?></span>

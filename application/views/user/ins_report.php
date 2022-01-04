@@ -4,7 +4,7 @@
       <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
         <h3 class="text-center">Plan of Action Reporting</h3>
         <p align="justify">Note - Items marked with <span class="text-primary imp">*</span>are required.</p>
-        <form role="form" id="contact-form" method="POST" autocomplete="on" action="<?php echo base_url();?>reporting/insert_report">
+        <form role="form" id="contact-form" method="POST" enctype="multipart/form-data" autocomplete="on" action="<?php echo base_url();?>reporting/insert_report">
           <div class="card-body">
             <div class="row">
             	<?php foreach ($head as $head) {?>
@@ -251,6 +251,7 @@
             <div class="row">
             	<label>Event Images <span class="text-primary imp">*</span></label>
             	<div class="form-group form-file-upload form-file-multiple">
+            		<input type="hidden" name="5000" value="30000" />
 						    <input type="file" name="images" multiple="" class="inputFileHidden" value="<?php set_value('images');?>" required/>
 						    <div class="input-group">
 						        <input type="text" class="form-control inputFileVisible" placeholder="Please Select Single file only." multiple>
@@ -265,6 +266,7 @@
             <div class="row">
             	<label>Event Videos</label>
             	<div class="form-group form-file-upload form-file-multiple">
+            		<input type="hidden" name="5000" value="30000" />
 						    <input type="file" name="videos" multiple="" class="inputFileHidden" value="<?php set_value('videos');?>">
 						    <div class="input-group">
 						        <input type="text" class="form-control inputFileVisible" placeholder="Please Select Single file only." multiple>
