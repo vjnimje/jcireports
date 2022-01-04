@@ -141,13 +141,11 @@ class Reporting extends CI_Controller {
 					'submitter_email' => $this->input->post('submitter_email'),
 					'ip_address'=> $ip
 				);
-				// $this->reporting_model->insert_report($data);
-				// $this->upload_videos($videoname);
-				// $this->upload_images($imagename);
+				$this->reporting_model->insert_report($data);
+				$this->upload_videos($videoname);
+				$this->upload_images($imagename);
 				$this->sendmail($data);
 				$this->session->set_flashdata('success_msg', 'Report Added Sucessfully');
-				// echo "<pre>";
-				// print_r($data);
 			}
 			else{
 
@@ -173,35 +171,49 @@ class Reporting extends CI_Controller {
 			$smtp_server = $row->smtp_server;
 		}
 		$report_id = $data['report_id'];
-		echo $email_id;
-		echo "<br>";
-		echo $report_id;
-		echo "<pre>";
-		print_r($data);
-		$to = "vjnimje@yahoo.com";
-		$cc = "vijay.nimje@adikar.com";
-		$subject = "Email Test from website";
-		$emailContent = "hello".$data['region_head'];
+		// echo $email_id;
+		// echo "<br>";
+		// echo $report_id;
+		// echo "<pre>";
+		// print_r($data);
+		date_default_timezone_set("Asia/Kolkata");
+		$now = date('d-m-Y H:i:s');
+		$to = $data['head_email'];
+		$cc = $data['lom_email'];
+		$subject = "Zone President's POA Reporting Update";
+		$emailContent = "Hello ".$data['region_head'].",
+		You're concerning LOM ".$data['lom_name']." has submitted their events successfully. 
+
+		Please check the following details
+
+		Report No:".$report_id." 
+		Reporting Time :".$now."
+
+		Regards,
+		Plan Of Action,
+		JCI Zone IX
+		";
 		$this->load->library('email');
-		$config = array();
-		$config['protocol'] = 'smtp';
-		$config['smtp_host'] = $smtp_server;
-		$config['smtp_port'] = $smtp_port;
-		$config['smtp_timeout'] = '60';
+		$config3 = array();
+		$config3['protocol'] = 'smtp';
+		$config3['smtp_host'] = $smtp_server;
+		$config3['smtp_port'] = $smtp_port;
+		$config3['smtp_timeout'] = '60';
 		
-		$config['smtp_user'] = $email_id;
-		$config['smtp_pass'] = $password;
-		$config['charset'] = 'utf-8';
-		$config['newline'] = "\r\n";
-		$config['validation'] = TRUE;
+		$config3['smtp_user'] = $email_id;
+		$config3['smtp_pass'] = $password;
+		$config3['charset'] = 'utf-8';
+		$config3['newline'] = "\r\n";
+		$config3['validation'] = TRUE;
 		
-		$this->email->initialize($config);
-		$this->email->from($email_id);
+		$this->email->initialize($config3);
+		$this->email->from($email_id,'Plan Of Action, JCI Zone IX');
 		$this->email->to($to);
 		$this->email->cc($cc);
 		$this->email->subject($subject);
 		$this->email->message($emailContent);
 		$this->email->send();
+		
 	}
 	function upload_videos($videoname){
 		$config2['file_name']			= $videoname;
@@ -237,7 +249,6 @@ class Reporting extends CI_Controller {
         if ( ! $this->upload->do_upload('images'))
         {
            	$error = array('error' => $this->upload->display_errors());
-
             $this->load->view('user/error_report', $error);
         }
         else

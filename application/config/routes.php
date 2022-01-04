@@ -58,6 +58,4 @@ $route['about']= 'main/about';
 $route['report']= 'main/reporting';
 $route['careers']= 'main/careers';
 $route['contact']= 'main/contact';
-
-$route['image-upload'] = 'ImageUpload';
-$route['image-upload/post']['post'] = "ImageUpload/uploadImage";
+$route['admin/entries'] = 'admin/entries/index';
